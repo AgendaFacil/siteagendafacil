@@ -61,7 +61,7 @@
 						<a class="page-scroll" href="#contact">Contato</a>
 					</li>
 					<li>
-						<a class="page-scroll" href="#wiki">Wiki</a>
+						<a class="page-scroll" href="#wiki">WIKI</a>
 					</li>
 				</ul>
 			</div>
@@ -84,11 +84,16 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2 text-center">
-					<h2 class="section-heading">Wiki - Automatizando site com Git e IIS</h2>
+					<h2 class="section-heading">Agenda Fácil - Organizando o seu dia!</h2>
 					<hr class="light">
 					<p class="text-faded">
-						Este site foi implementado utilizando git e IIS para que, quando ocorrer uma modificação no GitHub,</br> 
-						o site se atualizara sozinho
+						Adequado ao seu negócio<br />
+						Desenvolvido para abranger os mais diversos negócios que envolvam o processo de agendamento de serviços.<br />
+						<br />
+						Gestão de Agendamento<br />
+						Possibilita que o estabelecimento organize de uma maneira simples os agendamentos realizados pelos clientes através do sistema ou presencialmente.<br />
+						Facilidade para que seus clientes realizem agendamentos nos melhores horarios atráves de alguns cliques.
+
 					</p>
 					<a href="#" class="btn btn-default btn-xl">Crie sua conta</a>
 				</div>
@@ -280,22 +285,64 @@
 			</div>
 		</div>
 	</section>
-		<section class="bg-primary" id="about">
+		<section class="bg-primary" id="wiki">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2 text-center">
-					<h2 class="section-heading">Agenda Fácil - Organizando o seu dia!</h2>
+					<h2 class="section-heading">Wiki - Automatizando deploy do Git com Git e IIS</h2>
 					<hr class="light">
 					<p class="text-faded">
-						Adequado ao seu negócio<br />
-						Desenvolvido para abranger os mais diversos negócios que envolvam o processo de agendamento de serviços.<br />
-						<br />
-						Gestão de Agendamento<br />
-						Possibilita que o estabelecimento organize de uma maneira simples os agendamentos realizados pelos clientes através do sistema ou presencialmente.<br />
-						Facilidade para que seus clientes realizem agendamentos nos melhores horarios atráves de alguns cliques.
-
+						Foi realizado uma automação utilizando o git que,<br/>
+						quando alguma modificação é realizada, o site é automaticamente modificado. Isto ocorre graças<br/>
+						a um script que roda a cada x minutos, realizando um git clone no site.
+						<hr class="light">
+						<h2>Postando Site no GitHub</h2>
+						<p class="text-faded">
+							Criando repositório Agenda Fácil no github com todos os membros do grupo:</br>
+							<p><img src="img\wiki\img1.jpg" width="100%"></img></p>
+							<p><img src="img\wiki\img2.jpg" width="100%"></img></p>
+							<p><img src="img\wiki\img4.jpg" width="100%"></img></p>
+							<p><img src="img\wiki\img5.jpg" width="100%"></img></p>
+							<p><img src="img\wiki\img6.png" width="100%"></img></p>
+						</p>
+						<h2>Instalando e configurando IIS</h2>
+						<p class="class-faded">
+							<hr class="light">
+							O diretório do projeto estará localizado na unidade C, com forme exibido abaixo:
+							<p><img src="img\wiki\1.png" width="100%"></img><p/>
+							Adicionar Applicattion Pool com o nome da nossa aplicação.
+							<p><img src="img\wiki\2.png" width="100%"></img><p/>
+							Fornecer permissão no diretório do projeto para usuários IIS_IUSRS
+							<p><img src="img\wiki\3.png" width="100%"></img><p/>
+							<p><img src="img\wiki\4.png" width="100%"></img><p/>
+							Adicionar website no Azure, apontando para o diretório do projeto em “Physical path”:
+							<p><img src="img\wiki\5.png" width="100%"></img><p/>
+							Parar os sites que não estão sendo utilizados:
+							<p><img src="img\wiki\6.png" width="100%"></img><p/>
+							Obs: o diretório que é apontado em caminho físico deve possuir um arquivo Web.config.
+							<p><img src="img\wiki\7.png" width="100%"></img><p/>
+						</p>
+						<h2>Scripts para atualização</h2>
+						<p class="class-faded">
+						Após realizar os dois passos acima, é necessário realizar um script que vai rodar a cada x minutos(dependo da necessidade)
+							<div class="alert alert-warning" role="alert">
+								@echo offset<br/>
+								cd c:/siteagendafacildeploy<br/>
+								@echo deletando arquivos<br/>
+								rmdir siteagendafacil /S /Q<br/>
+								@echo Atualizando sites<br/>
+								git clone https://github.com/AgendaFacil/siteagendafacil.git<br/>
+							</div>
+						Este script está deletando pasta do site dando um clone no repositorio do GitHub. Para projetos muito grandes, este scripts fica
+						inviável pois ia demorar muito para baixar toda a pasta novamente. Há aplicações mais sofisticadas para estes projetod(como o Jenkins).
+						Porém como nosso esse processo é ideal para projetos pequenos.
+						</p>
 					</p>
-					<a href="#" class="btn btn-default btn-xl">Crie sua conta</a>
+					<h2>Automatizando o Script</h2>
+						<p class="class-faded">
+							Para realizarmos tal tarefa, iremos realizar o "Agendador de Tarefas" do próprio Windows:<br/>
+							Para isto para criar uma nova tarefa que irá executar o BAT criado e setar o tempo de preferência, que no nosso caso é 10 minutos.
+						</p>
 				</div>
 			</div>
 		</div>
