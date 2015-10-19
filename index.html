@@ -289,7 +289,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2 text-center">
-					<h2 class="section-heading">Wiki - Automatizando deploy do Git com Git e IIS</h2>
+					<h2 class="section-heading">Wiki - Automatizando DEPLOY com Git e IIS</h2>
 					<hr class="light">
 					<p class="text-faded">
 						COMPONENTES DO GRUPO - 03<br />
@@ -300,9 +300,9 @@
 						Thiago Quartarolo RA 34090<br />
 					</p>
 					<p class="text-faded">
-						Foi realizado uma automação utilizando o git que,<br/>
-						quando alguma modificação é realizada, o site é automaticamente modificado. Isto ocorre graças<br/>
-						a um script que roda a cada x minutos, realizando um git clone no site.
+						Foi realizado uma automação utilizando o git que,<br />
+						quando alguma modificação é realizada, o site é automaticamente modificado. <br/>
+						Isto ocorre graças a um script que roda a cada x minutos, realizando um git clone no site.
 						<hr class="light">
 						<h2>Postando Site no GitHub</h2>
 						<p class="text-faded">
@@ -316,23 +316,23 @@
 						<h2>Instalando e configurando IIS</h2>
 						<p class="class-faded">
 							<hr class="light">
-							O diretório do projeto estará localizado na unidade C, com forme exibido abaixo:
+							O diretório do projeto esta localizado na unidade C, conforme exibido abaixo:
 							<p><img src="img\wiki\1.png" width="100%"></img><p/>
-							Adicionar Applicattion Pool com o nome da nossa aplicação.
+							Adicionar Applicattion Pool com o nome da nossa aplicação
 							<p><img src="img\wiki\2.png" width="100%"></img><p/>
 							Fornecer permissão no diretório do projeto para usuários IIS_IUSRS
 							<p><img src="img\wiki\3.png" width="100%"></img><p/>
 							<p><img src="img\wiki\4.png" width="100%"></img><p/>
-							Adicionar website no Azure, apontando para o diretório do projeto em “Physical path”:
+							Adicionar website no Azure, apontando para o diretório do projeto em “Physical path”
 							<p><img src="img\wiki\5.png" width="100%"></img><p/>
-							Parar os sites que não estão sendo utilizados:
+							Parar os sites que não estão sendo utilizados
 							<p><img src="img\wiki\6.png" width="100%"></img><p/>
 							Obs: o diretório que é apontado em caminho físico deve possuir um arquivo Web.config.
 							<p><img src="img\wiki\7.png" width="100%"></img><p/>
 						</p>
 						<h2>Scripts para atualização</h2>
 						<p class="class-faded">
-						Após realizar os dois passos acima, é necessário realizar um script que vai rodar a cada x minutos(dependo da necessidade)
+						Após realizar as etapas acima, é necessário realizar um script que vai rodar a cada x minutos,dependo da necessidade de cada projeto
 							<div class="alert alert-warning" role="alert">
 								@echo offset<br/>
 								cd c:/siteagendafacildeploy<br/>
@@ -341,15 +341,14 @@
 								@echo Atualizando sites<br/>
 								git clone https://github.com/AgendaFacil/siteagendafacil.git<br/>
 							</div>
-						Este script está deletando pasta do site dando um clone no repositorio do GitHub. Para projetos muito grandes, este scripts fica
-						inviável pois ia demorar muito para baixar toda a pasta novamente. Há aplicações mais sofisticadas para estes projetod(como o Jenkins).
-						Porém como nosso esse processo é ideal para projetos pequenos.
+						Este script está deletando a pasta do site dando um clone no repositorio do GitHub.Este script é implementado somente em projetos pequenos, como este.
+						Para projetos muito grandes, este scripts fica inviável pois irá demorar muito para baixar toda a pasta novamente. Há aplicações mais sofisticadas para grandes projetos, como por exemplo, o Jenkins.						
 						</p>
 					</p>
 					<h2>Automatizando o Script</h2>
 						<p class="class-faded">
-							Para realizarmos tal tarefa, iremos realizar o "Agendador de Tarefas" do próprio Windows:<br/>
-							Para isto para criar uma nova tarefa que irá executar o BAT criado e setar o tempo de preferência, que no nosso caso é 10 minutos.
+							Para realizarmos tal tarefa, iremos utilizar o "Agendador de Tarefas" do próprio Windows:<br/>
+							Para isto, cria-se uma nova tarefa que irá executar o BAT, e determinar o tempo de preferência, que neste projeto são 10 minutos.
 						</p>
 				</div>
 			</div>
